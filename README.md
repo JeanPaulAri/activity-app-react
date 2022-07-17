@@ -1,6 +1,6 @@
 # Activity app 
 
-this is the master branch 
+this is the development branch 
 ## Available Scripts
 
 In the project directory, you can run:
