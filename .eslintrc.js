@@ -7,6 +7,9 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -21,5 +24,26 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'import/no-cycle': ['error', { maxDepth: Infinity }],
+    'react/jsx-filename-extension':
+        [1, { extensions: ['.js', '.jsx', '.ts', '.tsx', '.css'] }],
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.css'],
+      },
+    },
+  },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx', '*.css'],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
+    },
+  ],
 };
